@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BetterPlanet AI Assistant</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <h1>BetterPlanet AI Assistant</h1>
+      <p class="intro">
+        Ask a question, upload an image, and the assistant will evaluate it using your custom parameters.
+      </p>
+
+      <section class="chat-card">
+        <div id="chatWindow" class="chat-window" aria-live="polite"></div>
+
+        <form id="chatForm" class="chat-form">
+          <label for="evaluationParameters">Evaluation parameters (JSON or plain text)</label>
+          <textarea
+            id="evaluationParameters"
+            rows="4"
+            placeholder='{"quality": "high", "criteria": ["recyclable", "minimal plastic"]}'
+          ></textarea>
+
+          <label for="imageInput">Optional image upload</label>
+          <input id="imageInput" type="file" accept="image/*" />
+
+          <label for="messageInput">Your message</label>
+          <textarea id="messageInput" rows="3" placeholder="Type your message..."></textarea>
+
+          <button type="submit">Send</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
