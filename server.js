@@ -75,5 +75,5 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`BetterPlanet chatbot running on http://localhost:${port}`);
+  console.log(`OpenAI-Chatbot running on http://localhost:${port}`);
 });

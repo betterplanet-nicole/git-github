@@ -1,7 +1,7 @@
 {
-  "name": "betterplanet-chatbot",
+  "name": "openai-chatbot",
   "version": "1.0.0",
-  "description": "Website chatbot with image upload + OpenAI evaluation",
+  "description": "OpenAI-Chatbot with image upload and parameter-based evaluation",
   "main": "server.js",
   "type": "module",
   "scripts": {

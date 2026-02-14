@@ -1,6 +1,6 @@
-# BetterPlanet Website Chatbot (OpenAI + Image Evaluation)
+# OpenAI-Chatbot (BetterPlanet Website Assistant)
 
-This repo includes a self-hosted chatbot so visitors can use your AI assistant from your website (no ChatGPT account required).
+This repo includes a self-hosted OpenAI-Chatbot so visitors can use your AI assistant from your website (no ChatGPT account required).
 
 ## What this app does
 
