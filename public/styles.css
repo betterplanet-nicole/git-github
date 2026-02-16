@@ -1,0 +1,160 @@
+:root {
+  --bg: #f5f8ff;
+  --surface: #ffffff;
+  --primary: #1760ff;
+  --text: #13233a;
+  --muted: #5d6f8e;
+  --border: #d9e4ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.hero {
+  background: linear-gradient(150deg, #10254d, #1d4cb7);
+  color: white;
+  padding: 1rem 1.25rem 3.5rem;
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.hero-content {
+  max-width: 760px;
+  margin: 4rem auto 0;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.78rem;
+  opacity: 0.9;
+}
+
+h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0.5rem 0;
+  line-height: 1.15;
+}
+
+.hero-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  background: var(--primary);
+  color: white;
+  border-radius: 0.65rem;
+  padding: 0.8rem 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+.features article,
+form,
+.aws-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.features article {
+  padding: 1rem;
+}
+
+form {
+  margin-top: 1rem;
+  padding: 1.2rem;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+}
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  border: 1px solid #c8d8ff;
+  border-radius: 0.6rem;
+  padding: 0.7rem;
+  font: inherit;
+}
+
+.status {
+  margin-top: 0.85rem;
+  color: var(--muted);
+}
+
+.aws-section .subtext {
+  color: var(--muted);
+}
+
+.aws-card {
+  margin-top: 1rem;
+  padding: 1rem;
+  white-space: pre-wrap;
+}
+
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 1.5rem 0 2rem;
+}
+
+@media (max-width: 540px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+}

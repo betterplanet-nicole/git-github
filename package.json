@@ -1,0 +1,10 @@
+{
+  "name": "talk-to-my-energy-clone",
+  "version": "1.0.0",
+  "description": "AWS-ready utility landing page and lead API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test tests/api.test.js"
+  }
+}
