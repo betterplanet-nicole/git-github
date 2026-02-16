@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Talk to My Energy | Utility Savings</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <div class="logo">Talk to My Energy</div>
+      <a href="#lead-form" class="btn btn-outline">Get Started</a>
+    </nav>
+    <section class="hero-content">
+      <p class="eyebrow">Utility Program Enrollment</p>
+      <h1>Lower energy costs with a trusted utility advisor.</h1>
+      <p>
+        We help homeowners and business owners qualify for utility incentives,
+        energy efficiency upgrades, and bill savings programs.
+      </p>
+      <div class="hero-actions">
+        <a href="#lead-form" class="btn">Check Eligibility</a>
+        <a href="#aws" class="btn btn-outline">View AWS Solution</a>
+      </div>
+    </section>
+  </header>
+
+  <main>
+    <section class="section features">
+      <h2>How it works</h2>
+      <div class="grid-3">
+        <article>
+          <h3>1. Submit your utility details</h3>
+          <p>Tell us your provider, monthly bill, and location in under 60 seconds.</p>
+        </article>
+        <article>
+          <h3>2. We match available programs</h3>
+          <p>Our team identifies savings and rebate opportunities available in your area.</p>
+        </article>
+        <article>
+          <h3>3. Start saving</h3>
+          <p>Get connected to approved local installers and support teams.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="lead-form" class="section form-section">
+      <div>
+        <h2>See if you qualify</h2>
+        <p>Complete the form and we will review your utility savings opportunities.</p>
+      </div>
+      <form id="leadForm">
+        <div class="field-grid">
+          <label>Name<input name="name" required /></label>
+          <label>Email<input type="email" name="email" required /></label>
+          <label>Phone<input name="phone" required /></label>
+          <label>Utility Provider<input name="utility" required /></label>
+          <label>State<input name="state" required /></label>
+          <label>Average Monthly Bill ($)<input type="number" min="1" name="monthlyBill" required /></label>
+        </div>
+        <label>Notes (optional)<textarea name="notes" rows="3"></textarea></label>
+        <button class="btn" type="submit">Submit Application</button>
+        <p id="formStatus" class="status"></p>
+      </form>
+    </section>
+
+    <section id="aws" class="section aws-section">
+      <h2>AWS implementation choice</h2>
+      <p class="subtext">Recommended architecture for this lead-generation application.</p>
+      <pre id="awsResponse" class="aws-card">Loading AWS solution...</pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Talk to My Energy. Built for secure utility lead intake.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
