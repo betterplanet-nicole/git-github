@@ -1,0 +1,75 @@
+{
+  "nav": ["Home", "Usecases", "Blogs", "Partner with us"],
+  "hero": {
+    "headline": "Cut Call Volumes & Boost Grid Visibility—All in Real Time.",
+    "subheadline": "Give support teams, operators, and digital leaders one place to monitor outages, answer customer billing questions, and trigger proactive utility actions.",
+    "primaryCta": "Book a Demo",
+    "secondaryCta": "Learn More"
+  },
+  "personas": [
+    "Customer Support Leaders",
+    "Grid Operations Managers",
+    "Smart Metering Teams",
+    "CIO / IT Modernization",
+    "Efficiency Program Directors",
+    "Digital Transformation Offices"
+  ],
+  "painPoints": [
+    "Long customer call queues during outage windows",
+    "Limited feeder and transformer visibility across teams",
+    "Manual alert triage that delays response",
+    "Escalating support costs and inconsistent service quality"
+  ],
+  "features": [
+    {
+      "title": "Real-Time Grid Monitoring",
+      "description": "Track substations, feeders, and transformers with continuously refreshed usage and alerting views."
+    },
+    {
+      "title": "Utility Self-Service Support Chat",
+      "description": "Deflect repetitive support tickets with instant, traceable answers to customer questions."
+    },
+    {
+      "title": "Proactive Outage Detection",
+      "description": "Spot anomalies early with event scoring and clear priority flags for operations teams."
+    },
+    {
+      "title": "Customer-Friendly Bill Explanations",
+      "description": "Translate usage spikes and tariff tiers into plain-language explanations customers can trust."
+    },
+    {
+      "title": "Load Balance Recommendations",
+      "description": "Highlight peak-hour feeder pressure and suggest balancing actions before service degrades."
+    },
+    {
+      "title": "Multi-Channel Enablement",
+      "description": "Serve guidance across chat, web, and support consoles with a shared response logic."
+    }
+  ],
+  "steps": ["Connect Data", "Activate Agents", "Deliver Insights", "Optimize Continuously"],
+  "outputs": [
+    {
+      "title": "Customer Usage Explainer",
+      "description": "Provide guided explanations for seasonal usage shifts, slab changes, and unusual meter behavior with source references from your data snapshot."
+    },
+    {
+      "title": "Outage Heatmaps",
+      "description": "Render current outage intensity in a glanceable grid to prioritize dispatch and communication before issue volume spikes."
+    },
+    {
+      "title": "Load Spike Detection",
+      "description": "Automatically flag sudden feeder demand increases and pair each alert with likely root-cause candidates."
+    },
+    {
+      "title": "Ticketless Resolution",
+      "description": "Resolve routine customer intents automatically while preserving a complete transcript for audit and training improvements."
+    }
+  ],
+  "stats": [
+    { "label": "Support Center Workload Reduction", "value": "35%" },
+    { "label": "Faster Anomaly Detection", "value": "3x" },
+    { "label": "Deployment Time", "value": "14 days" },
+    { "label": "Boost in Cost Visibility", "value": "25%" }
+  ],
+  "footerLinks": ["Feedback", "Privacy", "Partner Program"]
+}
