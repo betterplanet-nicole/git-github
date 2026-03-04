@@ -1,0 +1,153 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Utility funnel full-stack application stack
+
+Globals:
+  Function:
+    Runtime: python3.12
+    Timeout: 15
+    MemorySize: 256
+    Environment:
+      Variables:
+        TABLE_NAME: !Ref AppTable
+        FRONTEND_ORIGIN: !Ref FrontendOrigin
+
+Parameters:
+  StageName:
+    Type: String
+    Default: prod
+  FrontendOrigin:
+    Type: String
+    Default: "*"
+    Description: CORS allowed origin for browser app
+  AdminToken:
+    Type: String
+    NoEcho: true
+    Description: Shared token used by admin APIs via x-admin-token header
+
+Resources:
+  AppTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: PK
+          AttributeType: S
+        - AttributeName: SK
+          AttributeType: S
+        - AttributeName: GSI1PK
+          AttributeType: S
+        - AttributeName: GSI1SK
+          AttributeType: S
+      KeySchema:
+        - AttributeName: PK
+          KeyType: HASH
+        - AttributeName: SK
+          KeyType: RANGE
+      GlobalSecondaryIndexes:
+        - IndexName: GSI1
+          KeySchema:
+            - AttributeName: GSI1PK
+              KeyType: HASH
+            - AttributeName: GSI1SK
+              KeyType: RANGE
+          Projection:
+            ProjectionType: ALL
+
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      StageName: !Ref StageName
+      CorsConfiguration:
+        AllowOrigins:
+          - !Ref FrontendOrigin
+        AllowHeaders:
+          - content-type
+          - x-admin-token
+        AllowMethods:
+          - GET
+          - POST
+
+  ApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: app.lambda_handler
+      CodeUri: ../backend/src
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AppTable
+      Environment:
+        Variables:
+          ADMIN_TOKEN: !Ref AdminToken
+      Events:
+        Providers:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /providers
+            Method: GET
+        FeatureMap:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /feature-map
+            Method: GET
+        LeadSubmit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /lead
+            Method: POST
+        QuoteSubmit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /quote
+            Method: POST
+        ContactSubmit:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /contact
+            Method: POST
+        AdminLeads:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /admin/leads
+            Method: GET
+
+  FrontendBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  FrontendBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref FrontendBucket
+      PolicyDocument:
+        Statement:
+          - Sid: PublicRead
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub "${FrontendBucket.Arn}/*"
+
+Outputs:
+  HttpApiUrl:
+    Description: API base URL
+    Value: !Sub "https://${Api}.execute-api.${AWS::Region}.amazonaws.com/${StageName}"
+  FrontendBucketName:
+    Description: S3 bucket to host static frontend assets
+    Value: !Ref FrontendBucket
+  FrontendWebsiteUrl:
+    Description: S3 website endpoint for frontend
+    Value: !GetAtt FrontendBucket.WebsiteURL

@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utility Program Enrollment</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; background: #f6f9ff; color: #1a1a1a; }
+      header { background: #143d8d; color: #fff; padding: 1.5rem; }
+      main { max-width: 900px; margin: 0 auto; padding: 1rem; }
+      .card { background: #fff; border-radius: 10px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 1px 4px rgba(0,0,0,.15); }
+      label { display: block; margin: 0.5rem 0 0.2rem; font-weight: bold; }
+      input, select, button { width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid #ccc; }
+      button { background: #143d8d; color: #fff; cursor: pointer; margin-top: 0.7rem; }
+      button:hover { background: #0c2f70; }
+      .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .result { background: #eef5ff; border: 1px solid #bad3ff; padding: .75rem; border-radius: 8px; margin-top: .75rem; }
+      @media (max-width: 680px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Utility Savings Enrollment</h1>
+      <p>Check eligibility, get an estimate, and request a callback.</p>
+    </header>
+    <main>
+      <section class="card">
+        <h2>1) Check providers by ZIP</h2>
+        <label for="zipLookup">ZIP code</label>
+        <input id="zipLookup" maxlength="5" />
+        <button id="lookupBtn">Find Providers</button>
+        <div id="providerResult" class="result" hidden></div>
+      </section>
+
+      <section class="card">
+        <h2>2) Submit your lead</h2>
+        <div class="grid">
+          <div><label>First name</label><input id="firstName" /></div>
+          <div><label>Last name</label><input id="lastName" /></div>
+          <div><label>Email</label><input id="email" /></div>
+          <div><label>ZIP</label><input id="zip" maxlength="5" /></div>
+        </div>
+        <label><input id="consent" type="checkbox" style="width:auto" /> I agree to be contacted about energy offers.</label>
+        <button id="leadBtn">Submit Lead</button>
+        <div id="leadResult" class="result" hidden></div>
+      </section>
+
+      <section class="card">
+        <h2>3) Get quote estimate</h2>
+        <label>Lead ID</label><input id="leadId" />
+        <label>Utility Provider</label><input id="utilityProvider" />
+        <label>Monthly Bill ($)</label><input id="monthlyBill" />
+        <label>State</label><input id="state" maxlength="2" />
+        <button id="quoteBtn">Generate Estimate</button>
+        <div id="quoteResult" class="result" hidden></div>
+      </section>
+
+      <section class="card">
+        <h2>4) Request callback</h2>
+        <label>Lead ID</label><input id="callbackLeadId" />
+        <label>Phone</label><input id="phone" />
+        <label>Preferred time window</label><input id="preferredTime" placeholder="Mon-Fri 3pm-5pm" />
+        <button id="callbackBtn">Request Callback</button>
+        <div id="callbackResult" class="result" hidden></div>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
